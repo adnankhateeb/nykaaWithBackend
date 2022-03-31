@@ -99,39 +99,24 @@
         </div>
         <h1> SIGN UP </h1>
         <div id="par2">
-            <form>
+            <form action="http://localhost:5000/register" method="POST">
                 <table>
                     <tr>
-                        <td> Name: </td>
-                        <td> <input type="text" id="name" class="a1" required></td>
+                        <td> Email: </td>
+                        <td> <input type="email" id="email" class="a1" name="email"> </td>
                     </tr>
                     <tr>
-                        <td> Email: </td>
-                        <td> <input type="email" id="email" class="a1" required> </td>
+                        <td> Username: </td>
+                        <td> <input type="text" id="name" class="a1" name="username"></td>
                     </tr>
                     <tr>
                         <td> Password: </td>
-                        <td> <input type="password" id="pass" class="a1" required></td>
+                        <td> <input type="password" id="pass" class="a1" name="password"></td>
                     </tr>
-                    <tr>
-                        <td> Mobile no.:</td>
-                        <td> <input type="number" id="mobile" class="a1" required> </td>
-                    </tr>
-                    <tr>
-                        <td> Address:</td>
-                        <td> <input type="text" id="address" class="a1" required> </td>
-                    </tr>
-                    <tr>
-                        <td> Pincode:</td>
-                        <td> <input type="text" id="pin" class="a1" required> </td>
-                    </tr>
+
                     <tr>
                         <td></td>
-                        <td> <input type="radio" id="term" required> I ACCEPT THE PRIVACY STATEMENT </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><button id="signin"> Sign Up </button> </td>
+                        <td><input type="submit" value="Submit"></input> </td>
                     </tr>
                 </table>
             </form>
@@ -143,12 +128,13 @@
 
         <img src="https://i.ytimg.com/vi/txt2PxQDWgk/maxresdefault.jpg" alt="">
     </div>
+    
 </body>
 
 </html>
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+<!-- 
 <script>
 
     document.querySelector("#signin").addEventListener("click", put)
@@ -192,4 +178,4 @@
             window.location.href = "login.html"
         }
     }
-</script>
+</script> -->

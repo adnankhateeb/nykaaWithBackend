@@ -14,11 +14,12 @@ let appendData = (data) => {
             bs.innerText = el.bestseller;
             bs.style.color = "green"
             bs.style.fontWeight = "500"
-
         }
+        // bs.style.border = "1px solid red"
 
         let img = document.createElement('img')
         img.src = el.link;
+        img.id = 'productImage'
 
         let title = document.createElement('p')
         title.innerText = el.title;

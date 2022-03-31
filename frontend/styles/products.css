@@ -30,12 +30,13 @@ html {
   /* padding: 20px; */
   background-color: #fff;
   text-align: center;
-  height: 500px;
+  height: 480px;
   padding-top: 5px;
   display: flex;
   flex-direction: column;
   font-size: 12px;
-  justify-content: space-between;
+  justify-content:flex-start;
+  /* gap : 0; */
   /* border-collapse: collapse; */
 }
 #mainCard:hover {
@@ -49,7 +50,9 @@ html {
   display: flex;
   justify-content: space-between;
   /* border: 1px solid red; */
+  /* width: 100%; */
   height: 10%;
+  /* padding: 1%; */
   /* border-top: 1px solid gray; */
 }
 
@@ -94,4 +97,11 @@ html {
 #sortBy li:hover{
   color:#fc2779;
   font-weight: 500;
+}
+
+#productImage {
+  width : 70%;
+  margin: auto;
+  padding-top : 0;
+  /* border: 1px solid red; */
 }

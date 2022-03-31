@@ -125,7 +125,7 @@ function displayproduct2(nykaadata) {
 
     var img = document.createElement("img");
     img.setAttribute("src", data.image);
-    img.setAttribute("class", "imgbox");
+    img.setAttribute("class", "fimgboxs");
 
     var name = document.createElement("p");
     name.textContent = data.name;
@@ -269,7 +269,7 @@ var nykaadata3 = [
 
 displayproduct4(nykaadata3)
 function displayproduct4(nykaadata3) {
-  console.log(data)
+
   document.querySelector("#twelvediv").textContent = ""
   nykaadata3.map(function (data) {
     var box = document.createElement("div");

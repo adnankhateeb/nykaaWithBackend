@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     <style>
         body {
             display: flex;
@@ -26,7 +26,7 @@
             border-radius: 10px;
             background-color: #ffffff;
             padding: 20px 0px 50px 0px;
-            box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+            /* box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px; */
         }
 
         #main {
@@ -40,7 +40,7 @@
             border-radius: 10px;
             background-color: rgb(255, 255, 255);
             padding: 20px 0px 50px 0px;
-            box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+            /* box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px; */
         }
 
         td {
@@ -113,21 +113,23 @@
             <h1> LOG IN </h1>
         </div>
         <div id="par2">
-            <form>
+            <form action="http://localhost:5000/login" method="post">
                 <table>
                     <tr>
-                        <td> Name : </td>
-                        <td> <input type="name" id="user-name" class="a1" required></td>
+                        <td> Email : </td>
+                        <td> <input type="text" id="email" name="email" class="a1"></td>
                     </tr>
                     <tr>
                         <td> Password : </td>
-                        <td> <input type="password" id="user-pass" class="a1" required></td>
+                        <td> <input type="password" id="password" class="a1" name="password"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Submit"></input></td>
                     </tr>
                 </table>
             </form>
         </div>
-        <h4> HAVE YOU FORGOTTEN YOUR PASSWORD?</h4>
-        <button id="login"> LOG IN </button>
+
     </div>
     <div id="box2">
         <div id="power">
@@ -149,55 +151,54 @@
 
 </html>
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- <script>
+    let Login = async () => {
+        console.log('hi')
+        try {
 
-<script>
-
-    document.querySelector("#login").addEventListener("click", check);
-
-    var comp = JSON.parse(localStorage.getItem("userDataBase"));
-
-    function check(e) {
-        e.preventDefault();
-
-        let n1 = document.querySelector("#user-name").value;
-        let n2 = document.querySelector("#user-pass").value;
-
-        for (var i = 0; i < comp.length; i++) {
-            // console.log(comp[i]); 
-            if (n1 == "" && n2 == "") {
-                swal({
-                    title: "fill all",
-                    text: "Please fill all required information",
-                    icon: "info",
-                    button: "Ok",
-                });
+            let login_data = {
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value
             }
-            else if (comp[i].name == n1) {
-                if (comp[i].password == n2) {
-                    alert("Login Successful")
-                    window.location.href = "index.html";
-                }
-                else {
-                    swal({
-                        title: "Wrong password",
-                        text: "Your password is wrong",
-                        icon: "warning",
-                        button: "Ok",
-                    });
-                }
-            }
-            else {
-                swal({
-                    title: "Wrong Name",
-                    text: "Your Name is wrong",
-                    icon: "warning",
-                    button: "Ok",
-                });
-            }
+
+            let login_data_json = JSON.stringify(login_data)
+
+            const res = await fetch("http://localhost:5000/login",
+                {
+                    method: "POST",
+                    body: login_data_json,
+                    credentials: "include", // added this part
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                })
+            let data = await res.json();
+            console.log("data:", data)
+        } catch (error) {
+            console.log("error:", error)
+
         }
     }
 
+    // let getUser = async (email, token) => {
+
+    //     try {
+
+    //         let res = await fetch(`localhost:5000/login`, {
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //                 Authorization: `Bearer ${token}`
+    //             },
+    //         })
+
+    //         let data = await res.json()
+    //         console.log("data:", data)
 
 
-</script>
+    //     } catch (error) {
+    //         console.log("error:", error)
+
+    //     }
+    // }
+
+</script> -->
