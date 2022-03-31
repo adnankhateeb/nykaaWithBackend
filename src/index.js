@@ -12,7 +12,6 @@ const hairController = require('./controllers/hair.controllers');
 const faceController = require('./controllers/face.controllers');
 const healthController = require('./controllers/health.controllers');
 
-
 const app = express();
 const corsOptions = {
   origin: true, //included origin as true
@@ -39,6 +38,14 @@ app.use(cookieParser());
 app.use(cors(corsOptions));
 
 const { register, login } = require('./controllers/auth.controllers');
+
+app.get('', (req, res) => {
+  try {
+    return res.redirect('views/index.html');
+  } catch (error) {
+    res.send(500).send({ err: error.message });
+  }
+});
 
 app.use('/users', userController);
 

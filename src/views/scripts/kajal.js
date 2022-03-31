@@ -23,6 +23,7 @@ let getData = async () => {
 }
 
 let data = await getData();
+console.log("data:", data)
 
 
 appendData(data);
