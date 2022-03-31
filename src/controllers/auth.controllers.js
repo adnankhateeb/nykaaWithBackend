@@ -1,5 +1,6 @@
 const User = require('../models/user.models');
 const jwt = require('jsonwebtoken');
+var path = require('path');
 require('dotenv').config();
 const express = require('express');
 const generateToken = (user) => {
@@ -30,9 +31,7 @@ const register = async (req, res) => {
 
     // console.log('token:', token);
 
-    return res
-      .status(200)
-      .redirect('http://127.0.0.1:5500/frontend/login.html');
+    return res.status(200).redirect('views/login.html');
   } catch (err) {
     res.status(400).send({ message: err.message });
   }
@@ -56,7 +55,20 @@ const login = async (req, res) => {
 
     // if it matches
     const token = generateToken(user);
-    return res.status(200).cookie('token', token).send({ user, token });
+
+    // console.log(path);
+    let session = req.session;
+    console.log('session:', session);
+
+    res
+      .cookie('token', token, {
+        httpOnly: false,
+      })
+      .redirect('views/index.html');
+
+    // res.render('index', function (err, html) {
+    //   res.send(token, 'http://127.0.0.1:5500/frontend/login.html');
+    // });
   } catch (err) {
     res.status(400).send({ message: err.message });
   }

@@ -1,5 +1,8 @@
 const express = require('express');
 const cors = require('cors');
+require('dotenv').config();
+const cookieParser = require('cookie-parser');
+const sessions = require('express-session');
 
 const userController = require('./controllers/user.controllers');
 const kajalController = require('./controllers/kajal.controllers');
@@ -8,14 +11,30 @@ const menController = require('./controllers/men.controllers');
 const hairController = require('./controllers/hair.controllers');
 const faceController = require('./controllers/face.controllers');
 const healthController = require('./controllers/health.controllers');
+
+
 const app = express();
 const corsOptions = {
-    origin: true, //included origin as true
-    credentials: true, //included credentials as true
+  origin: true, //included origin as true
+  credentials: true, //included credentials as true
 };
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+const oneDay = 1000 * 60 * 60 * 24;
+
+//session middleware
+app.use(
+  sessions({
+    secret: process.env.SESSION_KEY,
+    saveUninitialized: true,
+    cookie: { maxAge: oneDay },
+    resave: false,
+  })
+);
+app.use(express.static(__dirname));
+app.use(cookieParser());
 
 app.use(cors(corsOptions));
 
