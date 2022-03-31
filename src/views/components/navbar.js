@@ -1,7 +1,5 @@
-
-
 function navbar() {
-    return ` <div id="nav1">
+  return ` <div id="nav1">
     <i class="fa fa-mobile-phone" style="font-size:24px"><span class="a1">Get App</span>| </i>
     <i class="fa fa-map-marker" style="font-size:24px"><span class="a1">Store & Events</span>|</i>
     <i class="fa fa-gift" style="font-size:24px"><span class="a1">Gift Card</span>|</i>
@@ -34,11 +32,9 @@ function navbar() {
     <a href="./kajal.html">Kajal</a>
     <a href="./men.html">Men</a>
     <a href="./perfumes.html">Perfumes</a>
-    <a href="./appliances-1.html">Appliances</a>
-    <a href="./personalcare.html">Personal Care</a>
 </div>
 
-`
+`;
 }
 
-export { navbar } 
+export { navbar };

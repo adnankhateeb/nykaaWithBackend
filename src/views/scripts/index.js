@@ -34,24 +34,6 @@ var data = [
       name: "Upto 20% Off",
       description: "On Katrina's Faves",
     },
-    {
-      image:
-        "https://images-static.nykaa.com/uploads/a7930b7d-944d-476a-9aa7-7a16afb7a092.jpg?tr=w-600,cm-pad_resize",
-      name: "Upto 35% Off",
-      description: "New Salon-Like Smoothening Treatment At Home"
-    },
-    {
-      image:
-        "https://images-static.nykaa.com/uploads/4c941112-42ce-4f9e-a653-9adea7244979.gif?tr=w-600,cm-pad_resize",
-      name: "On Rs. 5500: Pick Your Lip Care Product",
-      description: " On Rs. 3500: Bestseller Mini",
-    },
-    {
-      image:
-        "https://images-static.nykaa.com/uploads/6b4bc81b-18bf-4aa5-ad2a-5169c8a80f86.gif?tr=w-600,cm-pad_resize",
-      name: "Buy 3 Get 3 On All Minis",
-      description: "On Rs.4000: Full Size Gift!",
-    },
 ];
 
 displayproduct(data)
