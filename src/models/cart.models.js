@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const kajalSchema = new mongoose.Schema(
+const cartSchema = new mongoose.Schema(
   {
     link: { type: String, required: true },
     title: { type: String, required: true },
@@ -20,6 +20,6 @@ const kajalSchema = new mongoose.Schema(
   }
 );
 
-const Kajal = new mongoose.model('kajal', kajalSchema);
+const Cart = new mongoose.model('cart', faceSchema);
 
-module.exports = Kajal;
+module.exports = Cart;

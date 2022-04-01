@@ -64,7 +64,11 @@ const login = async (req, res) => {
       .cookie('token', token, {
         httpOnly: false,
       })
-      .redirect('views/index.html');
+    if(user.isAdmin || user.isSeller){
+      res.redirect('views/adminpanel.html');
+    } else{
+      res.redirect('views/index.html');
+    }
 
     // res.render('index', function (err, html) {
     //   res.send(token, 'http://127.0.0.1:5500/frontend/login.html');

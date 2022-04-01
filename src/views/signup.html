@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
+    <link rel="shortcut icon" type="ico" href="./images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -16,14 +20,20 @@
 
         #main {
             padding: 30px 10px;
-            width: 490px;
+            width: 25%;
             text-align: center;
             margin: auto;
-            margin-top: 30px;
             font-weight: bolder;
             border-radius: 10px;
             background-color: rgb(255, 255, 255);
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+        }
+
+        #entire {
+            margin-top: 9%;
+            text-align: center;
+            width: 100%;
         }
 
         #bag2 {
@@ -72,110 +82,69 @@
             padding: 0px 20px;
         }
 
-        #signin {
-            margin-left: 60px;
-            padding: 15px;
-            font-size: 20px;
-            border: 0px;
-            color: white;
-            font-weight: 500;
-            background-color: rgb(255, 0, 43);
-            border-radius: 10px;
-            cursor: pointer;
-            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-        }
+
 
         td {
             text-align: left;
             /* padding: 30px 0px; */
         }
+
+        #button {
+            /* display: block; */
+            cursor: pointer;
+            background-color: #fc2779;
+            border: 0;
+            /* height: 3em; */
+            width: 76%;
+            /* align-self: flex-end; */
+            color: white;
+            font-size: 1.4em;
+            padding: 12px;
+        }
     </style>
+    <link rel="stylesheet" href="./styles/navbar.css">
 </head>
 
 <body>
-    <div id="main">
-        <div id="par1">
-            <img src="https://contactworlds.com/wp-content/uploads/2021/06/Nykaa-India.jpg" alt="">
-        </div>
-        <h1> SIGN UP </h1>
-        <div id="par2">
-            <form action="http://localhost:5000/register" method="POST">
-                <table>
-                    <tr>
-                        <td> Email: </td>
-                        <td> <input type="email" id="email" class="a1" name="email"> </td>
-                    </tr>
-                    <tr>
-                        <td> Username: </td>
-                        <td> <input type="text" id="name" class="a1" name="username"></td>
-                    </tr>
-                    <tr>
-                        <td> Password: </td>
-                        <td> <input type="password" id="pass" class="a1" name="password"></td>
-                    </tr>
+    <div id="navbar"></div>
+    <div id="entire">
+        <div id="main">
+            <div id="par1">
+                <img src="https://contactworlds.com/wp-content/uploads/2021/06/Nykaa-India.jpg" alt="">
+            </div>
+            <h1> SIGN UP </h1>
+            <div id="par2">
+                <form action="http://localhost:5000/register" method="POST">
+                    <table>
+                        <tr>
+                            <td> Email: </td>
+                            <td> <input type="email" id="email" class="a1" name="email"> </td>
+                        </tr>
+                        <tr>
+                            <td> Username: </td>
+                            <td> <input type="text" id="name" class="a1" name="username"></td>
+                        </tr>
+                        <tr>
+                            <td> Password: </td>
+                            <td> <input type="password" id="pass" class="a1" name="password"></td>
+                        </tr>
 
-                    <tr>
-                        <td></td>
-                        <td><input type="submit" value="Submit"></input> </td>
-                    </tr>
-                </table>
-            </form>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" value="Submit" id="button"></input> </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Have an account? <a href="login.html" style="color:#fc2779 ">Login</a> instead</td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
         </div>
-    </div>
-    <div id="bag2">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwV1lQOiFlZv6B9a71V_xFZmsh7kZPyHVkog&usqp=CAU"
-            alt="">
 
-        <img src="https://i.ytimg.com/vi/txt2PxQDWgk/maxresdefault.jpg" alt="">
     </div>
-    
 </body>
 
 </html>
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<!-- 
-<script>
-
-    document.querySelector("#signin").addEventListener("click", put)
-
-    let userStack = JSON.parse(localStorage.getItem("userDataBase")) || [];
-    function put(e) {
-        e.preventDefault();
-
-        var re1 = document.querySelector("#name").value;
-        var re2 = document.querySelector("#email").value;
-        var re3 = document.querySelector("#pass").value;
-        var re4 = document.querySelector("#mobile").value;
-        var re5 = document.querySelector("#address").value;
-        var re6 = document.querySelector("#pin").value;
-        var re7 = document.querySelector("term");
-        // console.log(re1,re2,re3,re4)
-
-        if (re1 == "" || re2 == "" || re3 == "" || re4 == "" || re5 == "" || re6 == "") {
-            swal({
-                title: "fill all ",
-                text: "please fill all information",
-                icon: "info",
-                button: "Ok",
-            });
-        }
-
-        else {
-            let userData = {
-                name: re1,
-                email: re2,
-                password: re3,
-                mobile: re4,
-                address: re5,
-                pincode: re6,
-            }
-            // console.log(userData); 
-            userStack.push(userData);
-
-            localStorage.setItem("userDataBase", JSON.stringify(userStack))
-            alert("Account Successfuly Created")
-            window.location.href = "login.html"
-        }
-    }
-</script> -->
+<script type="module" src="./scripts/cart.js"></script>
