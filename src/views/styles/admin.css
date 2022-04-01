@@ -12,6 +12,9 @@
 }
 
 #submitBtn {
-    margin: auto;
-    
+  margin: auto;
+}
+
+input::-webkit-input-placeholder {
+  font-size: 12px !important;
 }
