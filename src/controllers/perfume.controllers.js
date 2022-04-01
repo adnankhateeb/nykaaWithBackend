@@ -8,7 +8,7 @@ const { verifySellerPerfume } = require('../middlewares/verifySeller');
 const Perfume = require('../models/perfume.models');
 
 router.post('', authenticate, authorise, async (req, res) => {
-  req.body.user_id = req.userID;
+  // req.body.user_id = req.userID;
   try {
     const perfume = await Perfume.create(req.body);
     return res.status(200).send(perfume);

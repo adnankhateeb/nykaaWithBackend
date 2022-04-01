@@ -8,7 +8,7 @@ const { verifySellerFace } = require('../middlewares/verifySeller');
 const Health = require('../models/health.models');
 
 router.post('', authenticate, authorise, async (req, res) => {
-  req.body.user_id = req.userID;
+  // req.body.user_id = req.userID;
   try {
     const health = await Health.create(req.body);
     return res.status(200).send(health);

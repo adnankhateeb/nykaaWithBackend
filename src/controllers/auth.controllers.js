@@ -27,7 +27,7 @@ const register = async (req, res) => {
       username: req.body.username,
       password: req.body.password,
     });
-    const token = generateToken(user);
+    // const token = generateToken(user);
 
     // console.log('token:', token);
 

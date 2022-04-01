@@ -8,7 +8,7 @@ const Kajal = require('../models/kajal.models');
 
 
 router.post('', authenticate, authorise, async (req, res) => {
-  req.body.user_id = req.userID;
+
   try {
     const kajal = await Kajal.create(req.body);
     return res.status(200).send(kajal);

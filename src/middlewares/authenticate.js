@@ -12,29 +12,27 @@ const verifyToken = (token) => {
 };
 
 const authenticate = async (req, res, next) => {
-  if (!req.headers.authorization)
-  return res
-  .status(400)
-  .send({ message: 'Authorization token not found or incorrect' });
-  
-  if (!req.headers.authorization.startsWith('Bearer '))
-  return res
-  .status(400)
-  .send({ message: 'Authorization token not found or incorrect' });
-  
-  const token = req.headers.authorization.trim().split(' ')[1];
-  
+  const newToken = req.cookies.token;
+  // console.log(newToken);
+
+  if (!newToken) {
+    return res
+      .status(400)
+      .send({ message: 'Authorization token not found or incorrect' });
+  }
+
   let decoded;
   try {
-    decoded = await verifyToken(token);
+    decoded = await verifyToken(newToken);
   } catch (err) {
     return res
-    .status(400)
-    .send({ message: 'Authorization token not found or incorrect' });
+      .status(400)
+      .send({ message: 'Authorization token not found or incorrect' });
   }
-  
+
   req.user = decoded.user;
 
+  console.log(req.user)
   return next();
 };
 
