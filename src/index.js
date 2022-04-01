@@ -3,6 +3,8 @@ const cors = require('cors');
 require('dotenv').config();
 const cookieParser = require('cookie-parser');
 const sessions = require('express-session');
+const app = express();
+app.enable('trust proxy')
 
 const userController = require('./controllers/user.controllers');
 const kajalController = require('./controllers/kajal.controllers');
@@ -12,7 +14,6 @@ const hairController = require('./controllers/hair.controllers');
 const faceController = require('./controllers/face.controllers');
 const healthController = require('./controllers/health.controllers');
 
-const app = express();
 const corsOptions = {
   origin: true, //included origin as true
   credentials: true, //included credentials as true
