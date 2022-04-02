@@ -3,6 +3,6 @@ require('dotenv').config();
 
 module.exports = () => {
   return mongoose.connect(
-    process.env.SERVER_URL
+    'mongodb+srv://adnan:adnan@cluster0.rlrcf.mongodb.net/nykaaBackendTest?retryWrites=true&w=majority'
   );
 };
