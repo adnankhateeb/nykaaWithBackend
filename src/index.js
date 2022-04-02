@@ -5,6 +5,9 @@ const cookieParser = require('cookie-parser');
 const sessions = require('express-session');
 const app = express();
 app.enable('trust proxy')
+const bodyParser = require('body-parser')
+app.use(bodyParser.json())
+
 
 const userController = require('./controllers/user.controllers');
 const kajalController = require('./controllers/kajal.controllers');
@@ -13,6 +16,7 @@ const menController = require('./controllers/men.controllers');
 const hairController = require('./controllers/hair.controllers');
 const faceController = require('./controllers/face.controllers');
 const healthController = require('./controllers/health.controllers');
+const cartController = require('./controllers/cart.controllers')
 
 const corsOptions = {
   origin: true, //included origin as true
@@ -49,6 +53,7 @@ app.get('', (req, res) => {
 });
 
 app.use('/users', userController);
+app.use('/cart', cartController);
 
 app.use('/kajal', kajalController);
 app.use('/perfume', perfumeController);

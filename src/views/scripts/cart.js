@@ -6,7 +6,24 @@ let navbarDiv = document.getElementById('navbar');
 
 navbarDiv.innerHTML = navbar();
 
-let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+// let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+
+let url = 'http://localhost:5000/cart/';
+let getData = async () => {
+  try {
+    let fetched = await fetch(url);
+    let dataFetched = await fetched.json();
+    return dataFetched;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// let postData = async
+
+let cartItems = await getData();
+// console.log("cartItems:", cartItems)
 
 appendCart(cartItems);
 

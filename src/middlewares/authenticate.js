@@ -27,7 +27,7 @@ const authenticate = async (req, res, next) => {
   } catch (err) {
     return res
       .status(400)
-      .send({ message: 'Authorization token not found or incorrect' });
+      .send({ message: 'You are not authorized to perform this action' });
   }
 
   req.user = decoded.user;

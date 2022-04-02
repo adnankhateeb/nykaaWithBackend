@@ -2,16 +2,13 @@ const mongoose = require('mongoose');
 
 const cartSchema = new mongoose.Schema(
   {
-    link: { type: String, required: true },
-    title: { type: String, required: true },
-    rating: { type: String, required: true },
-    price: { type: String, required: true },
-    bestseller: { type: String, required: true },
-    numberOfRatings: { type: Number, required: true },
-    sellerId: {
+    userId: {
       type: mongoose.Schema.Types.ObjectId,
+      ref: 'users',
       required: true,
-      ref: 'user',
+    },
+    cartProducts: {
+      type: Array
     },
   },
   {
@@ -20,6 +17,6 @@ const cartSchema = new mongoose.Schema(
   }
 );
 
-const Cart = new mongoose.model('cart', faceSchema);
+const Cart = new mongoose.model('cart', cartSchema);
 
 module.exports = Cart;
