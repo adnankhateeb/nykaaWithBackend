@@ -1,3 +1,0 @@
-SERVER_URL=mongodb+srv://adnan:adnan@cluster0.rlrcf.mongodb.net/nykaaBackendTest?retryWrites=true&w=majority
-SECRET_KEY=supersecretverysecretkeytomakeitimpossibletohack
-SESSION_KEY=ultraomegasuperdupersecretkeytomakeeverythingsupersecureandimpossibletohackhaha
