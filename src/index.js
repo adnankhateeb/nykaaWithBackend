@@ -37,7 +37,7 @@ app.use(
     resave: false,
   })
 );
-app.use( express.static( __dirname + 'src/client' ));
+app.use(express.static(__dirname));
 app.use(cookieParser());
 
 // app.use(cors(corsOptions));

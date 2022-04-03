@@ -1,9 +1,8 @@
 const User = require('../models/user.models');
 const jwt = require('jsonwebtoken');
-const path = require('path');
+var path = require('path');
 require('dotenv').config();
 const express = require('express');
-
 const generateToken = (user) => {
   return jwt.sign({ user }, process.env.SECRET_KEY);
 };
@@ -32,7 +31,7 @@ const register = async (req, res) => {
 
     // console.log('token:', token);
 
-    res.sendFile(path.join(__dirname, '/index.html'));
+    return res.status(200).redirect('views/login.html');
   } catch (err) {
     res.status(400).send({ message: err.message });
   }
@@ -61,13 +60,14 @@ const login = async (req, res) => {
     let session = req.session;
     console.log('session:', session);
 
-    res.cookie('token', token, {
-      httpOnly: false,
-    });
-    if (user.isAdmin || user.isSeller) {
-      res.sendFile( path.join( __dirname, 'src/views', 'index.html' ));
-    } else {
-      res.sendFile( path.join( __dirname, '.../src/views', 'index.html' ));
+    res
+      .cookie('token', token, {
+        httpOnly: false,
+      })
+    if(user.isAdmin || user.isSeller){
+      res.redirect('views/adminpanel.html');
+    } else{
+      res.redirect('views/index.html');
     }
 
     // res.render('index', function (err, html) {
