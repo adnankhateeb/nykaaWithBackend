@@ -1,51 +1,43 @@
-
-import { navbar } from "../components/navbar.js";
-import { appendData } from "../scripts/appendData.js"
+import { navbar } from '../components/navbar.js';
+import { appendData } from '../scripts/appendData.js';
 
 let navbarDiv = document.getElementById('navbar');
-let url = "http://localhost:5000/kajal";
+let url = 'http://localhost:5000/products/kajal';
 
 navbarDiv.innerHTML = navbar();
-import sidebar from "../components/sidebar.js"
+import sidebar from '../components/sidebar.js';
 let sidebarDiv = document.getElementById('sidebar');
 sidebarDiv.innerHTML = sidebar();
 
-
 let getData = async () => {
-    try {
-        let fetched = await fetch(url);
-        let dataFetched = await fetched.json();
-        return dataFetched;
-    }
-    catch (error) {
-        console.log(error);
-    }
-}
+  try {
+    let fetched = await fetch(url);
+    let dataFetched = await fetched.json();
+    return dataFetched;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 let data = await getData();
-console.log("data:", data)
-
+console.log('data:', data);
 
 appendData(data);
-
 
 let low = document.getElementById('l2h');
 
 low.addEventListener('click', () => {
-    
-    data.sort((a,b) => {
-        return a.price-b.price;
-    })
-    appendData(data)
-})
+  data.sort((a, b) => {
+    return a.price - b.price;
+  });
+  appendData(data);
+});
 
-let high = document.getElementById('h2l')
+let high = document.getElementById('h2l');
 
 high.addEventListener('click', () => {
-
-    data.sort((a,b) => {
-        return b.price-a.price;
-    })
-    appendData(data)
-
-})
+  data.sort((a, b) => {
+    return b.price - a.price;
+  });
+  appendData(data);
+});

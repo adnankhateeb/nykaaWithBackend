@@ -6,9 +6,9 @@ function Submit() {
   console.log('hello');
   let form = document.querySelector('form');
 
-  let category = document.querySelector('#category').value;
-  //     console.log("category:", category)
-  form.action = `http://localhost:5000/${category}`;
+  let title = document.querySelector('#title').value
+  form.action = `http://localhost:5000/products/`;
   form.method = 'post';
   form.submit();
+  alert(`${title} has been added to the site!`)
 }

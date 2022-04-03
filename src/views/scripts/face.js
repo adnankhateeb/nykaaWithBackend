@@ -9,8 +9,7 @@ import sidebar from '../components/sidebar.js';
 let sidebarDiv = document.getElementById('sidebar');
 sidebarDiv.innerHTML = sidebar();
 
-
-let url = 'http://localhost:5000/men';
+let url = 'http://localhost:5000/products/men';
 let getData = async () => {
   try {
     let fetched = await fetch(url);
