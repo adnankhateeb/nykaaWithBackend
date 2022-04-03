@@ -65,9 +65,9 @@ const login = async (req, res) => {
         httpOnly: false,
       })
     if(user.isAdmin || user.isSeller){
-      res.redirect('views/adminpanel.html');
+      res.redirect('/adminpanel.html');
     } else{
-      res.redirect('views/index.html');
+      res.redirect('/index.html');
     }
 
     // res.render('index', function (err, html) {
