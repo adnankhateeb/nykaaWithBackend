@@ -32,7 +32,7 @@ const authenticate = async (req, res, next) => {
 
   req.user = decoded.user;
 
-  console.log(req.user)
+  // console.log(req.user)
   return next();
 };
 

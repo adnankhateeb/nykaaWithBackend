@@ -9,7 +9,7 @@ const Product = require('../models/product.models');
 
 router.post('', authenticate, authorise, async (req, res) => {
   // req.body.user_id = req.userID;
-  const user = req.user;
+  // const user = req.user;
   console.log("user:", user)
   try {
     const product = await Product.create({
