@@ -1,8 +1,10 @@
 const User = require('../models/user.models');
 const jwt = require('jsonwebtoken');
-var path = require('path');
+const path = require('path');
 require('dotenv').config();
 const express = require('express');
+const { sendFile } = require('fs')
+
 const generateToken = (user) => {
   return jwt.sign({ user }, process.env.SECRET_KEY);
 };
@@ -31,7 +33,7 @@ const register = async (req, res) => {
 
     // console.log('token:', token);
 
-    return res.status(200).redirect('login.html');
+    res.sendFile(path.join(__dirname, '/index.html'));
   } catch (err) {
     res.status(400).send({ message: err.message });
   }
