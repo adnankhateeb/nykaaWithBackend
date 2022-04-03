@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const path = require('path');
 require('dotenv').config();
 const express = require('express');
-const { sendFile } = require('fs')
+const { sendFile } = require('fs');
 
 const generateToken = (user) => {
   return jwt.sign({ user }, process.env.SECRET_KEY);
@@ -62,14 +62,13 @@ const login = async (req, res) => {
     let session = req.session;
     console.log('session:', session);
 
-    res
-      .cookie('token', token, {
-        httpOnly: false,
-      })
-    if(user.isAdmin || user.isSeller){
-      res.redirect('adminpanel.html');
-    } else{
-      res.redirect('index.html');
+    res.cookie('token', token, {
+      httpOnly: false,
+    });
+    if (user.isAdmin || user.isSeller) {
+      res.sendFile(path.join(__dirname, '/adminpanel.html'));
+    } else {
+      res.sendFile(path.join(__dirname, '/index.html'));
     }
 
     // res.render('index', function (err, html) {
