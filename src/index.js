@@ -18,10 +18,10 @@ const faceController = require('./controllers/face.controllers');
 const healthController = require('./controllers/health.controllers');
 const cartController = require('./controllers/cart.controllers')
 
-// const corsOptions = {
-//   origin: true, //included origin as true
-//   credentials: true, //included credentials as true
-// };
+const corsOptions = {
+  origin: true, //included origin as true
+  credentials: true, //included credentials as true
+};
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -40,7 +40,7 @@ app.use(
 app.use(express.static(__dirname));
 app.use(cookieParser());
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 app.use(cors());
 
 

@@ -3,14 +3,14 @@ const express = require('express');
 const router = express.Router();
 const authenticate = require('../middlewares/authenticate');
 const authorise = require('../middlewares/authorise');
-const {verifySellerKajal} = require('../middlewares/verifySeller')
+const { verifySellerKajal } = require('../middlewares/verifySeller');
 const Kajal = require('../models/kajal.models');
 
-
 router.post('', authenticate, authorise, async (req, res) => {
-
   try {
+    console.log(req.body);
     const kajal = await Kajal.create(req.body);
+    console.log('kajal:', kajal);
     return res.status(200).send(kajal);
   } catch (err) {
     return res.status(400).send({ message: err.message });
