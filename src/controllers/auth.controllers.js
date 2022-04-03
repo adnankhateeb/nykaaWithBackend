@@ -66,9 +66,9 @@ const login = async (req, res) => {
       httpOnly: false,
     });
     if (user.isAdmin || user.isSeller) {
-      res.sendFile(path.join(__dirname, '/adminpanel.html'));
+      res.sendFile('/adminpanel.html');
     } else {
-      res.sendFile(path.join(__dirname, '/index.html'));
+      res.sendFile('/index.html');
     }
 
     // res.render('index', function (err, html) {
