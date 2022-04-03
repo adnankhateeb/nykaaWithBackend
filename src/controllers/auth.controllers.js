@@ -65,9 +65,9 @@ const login = async (req, res) => {
       httpOnly: false,
     });
     if (user.isAdmin || user.isSeller) {
-      res.sendFile(path.join(__dirname+'views/index.html'));
+      res.sendFile( path.join( __dirname, 'src/views', 'index.html' ));
     } else {
-      res.sendFile(path.join(__dirname+'views/index.html'));
+      res.sendFile( path.join( __dirname, 'src/views', 'index.html' ));
     }
 
     // res.render('index', function (err, html) {
