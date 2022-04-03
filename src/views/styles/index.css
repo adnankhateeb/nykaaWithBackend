@@ -109,6 +109,7 @@
 /* 2nd div */
 #main {
   text-align: center;
+  margin-top: 9%;
 }
 #main > * > * {
   cursor: pointer;
@@ -142,6 +143,7 @@
   /* gap : 1%; */
   background-color: rgb(0, 0, 0);
 }
+
 .main-box:hover {
   /* font-size: 1.05em; */
   transform: scale(1.009);
@@ -184,14 +186,12 @@
 }
 
 /* 5th div */
-.fifthDiv {
-  width: 75%;
-  margin: auto;
-}
+
 #fifthdiv {
+  width: 75%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  width: 80%;
+  /* width: 80%; */
   margin: auto;
   margin-bottom: 5%;
   /* padding: 10px 20px 20px 60px; */
