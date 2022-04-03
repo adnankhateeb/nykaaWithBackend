@@ -50,7 +50,7 @@ const login = async (req, res) => {
 
     // if it doesn't match
     if (!match) {
-      return res.status(400).send({ message: 'Wrong Email or Password' });
+      return res.status(400).send('Wrong Email or Password');
     }
 
     // if it matches
@@ -60,13 +60,12 @@ const login = async (req, res) => {
     let session = req.session;
     console.log('session:', session);
 
-    res
-      .cookie('token', token, {
-        httpOnly: false,
-      })
-    if(user.isAdmin || user.isSeller){
+    res.cookie('token', token, {
+      httpOnly: false,
+    });
+    if (user.isAdmin || user.isSeller) {
       res.redirect('views/adminpanel.html');
-    } else{
+    } else {
       res.redirect('views/index.html');
     }
 
