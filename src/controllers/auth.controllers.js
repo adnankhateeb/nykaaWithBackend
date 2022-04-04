@@ -31,7 +31,7 @@ const register = async (req, res) => {
 
     // console.log('token:', token);
 
-    return res.status(200).redirect('views/login.html');
+    return res.status(200).redirect('https://nykaa-clone-project.netlify.app/login.html');
   } catch (err) {
     res.status(400).send({ message: err.message });
   }
@@ -64,9 +64,9 @@ const login = async (req, res) => {
       httpOnly: false,
     });
     if (user.isAdmin || user.isSeller) {
-      res.redirect('views/adminpanel.html');
+      res.redirect('https://nykaa-clone-project.netlify.app/adminpanel.html');
     } else {
-      res.redirect('views/index.html');
+      res.redirect('https://nykaa-clone-project.netlify.app/index.html');
     }
 
     // res.render('index', function (err, html) {
