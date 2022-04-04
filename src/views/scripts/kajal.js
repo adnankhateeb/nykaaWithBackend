@@ -2,7 +2,7 @@ import { navbar } from '../components/navbar.js';
 import { appendData } from '../scripts/appendData.js';
 
 let navbarDiv = document.getElementById('navbar');
-let url = 'http://localhost:5000/products/kajal';
+let url = 'https://nykaa-clone-api.herokuapp.com/products/kajal';
 
 navbarDiv.innerHTML = navbar();
 import sidebar from '../components/sidebar.js';

@@ -9,7 +9,7 @@ import sidebar from '../components/sidebar.js';
 let sidebarDiv = document.getElementById('sidebar');
 sidebarDiv.innerHTML = sidebar();
 
-let url = 'http://localhost:5000/products/perfume';
+let url = 'https://nykaa-clone-api.herokuapp.com/products/perfume';
 let getData = async () => {
   try {
     let fetched = await fetch(url);

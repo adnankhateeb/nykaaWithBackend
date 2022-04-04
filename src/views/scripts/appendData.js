@@ -78,7 +78,7 @@ let addToCart = async (item) => {
     let product = item;
 
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost:5000/cart', true);
+    xhr.open('POST', 'https://nykaa-clone-api.herokuapp.com/cart', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify(product));
   } catch (e) {
@@ -148,12 +148,11 @@ let appendCart = (data) => {
 };
 
 let remove = async (item) => {
- 
   try {
     let product = item;
     console.log(product);
     var xhr = new XMLHttpRequest();
-    xhr.open('PATCH', 'http://localhost:5000/cart', true);
+    xhr.open('PATCH', 'https://nykaa-clone-api.herokuapp.com/cart', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify(product));
   } catch (e) {
@@ -163,6 +162,5 @@ let remove = async (item) => {
     location.reload();
   }
 };
-
 
 export { appendData, appendCart };

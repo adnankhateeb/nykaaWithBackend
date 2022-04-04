@@ -8,8 +8,7 @@ navbarDiv.innerHTML = navbar();
 
 // let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 
-
-let url = 'http://localhost:5000/cart/';
+let url = 'https://nykaa-clone-api.herokuapp.com/cart/';
 let getData = async () => {
   try {
     let fetched = await fetch(url);
@@ -37,9 +36,9 @@ tp.innerText = `₹${total}`;
 
 let containerDiv = document.getElementById('container');
 
-document.querySelector("#but1").addEventListener("click", check);
-function check(){
-    window.location.href = 'address.html'
+document.querySelector('#but1').addEventListener('click', check);
+function check() {
+  window.location.href = 'address.html';
 }
 
 // containerDiv.style.display = "flex";

@@ -8,7 +8,7 @@ navbarDiv.innerHTML = navbar();
 import sidebar from '../components/sidebar.js';
 let sidebarDiv = document.getElementById('sidebar');
 sidebarDiv.innerHTML = sidebar();
-let url = 'http://localhost:5000/products/hair';
+let url = 'https://nykaa-clone-api.herokuapp.com/products/hair';
 let getData = async () => {
   try {
     let fetched = await fetch(url);
